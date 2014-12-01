@@ -1,0 +1,1 @@
+require 'foundation/rails/generators/install_generator'
