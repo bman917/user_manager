@@ -20,7 +20,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.1"
   s.add_dependency "devise", "~> 3.4"
   s.add_dependency 'foundation-rails', "~> 5.4"
-
+  s.add_dependency 'sass-rails'
+  
   s.add_development_dependency "sqlite3", "~> 1.3"
   s.add_development_dependency "better_errors", "~> 1.1"
   s.add_development_dependency "meta_request", "~>0.3"
