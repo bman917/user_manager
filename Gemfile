@@ -14,4 +14,4 @@ gemspec
 # gem 'debugger'
 # gem 'foundation-rails', :path => '/home/jchan/github/foundation-rails'
 # gem 'devise', :path => '/home/jchan/github/devise'
-gem 'foundation-rails'
+# gem 'foundation-rails'

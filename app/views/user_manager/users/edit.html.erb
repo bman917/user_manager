@@ -1,54 +1,69 @@
-<div>
-<h2 class="titleize">Edit User</h2>
+<h2>Edit User</h2>
+<div class="small-7 columns">
+
+  <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <fieldset>
+    <div class="columns">
+
+      <div class="field row">
+        <div class="row"><%= f.label :username %></div>
+        <div class="row">
+            <div class="small-offset-1 columns">
+              <h3 class="subheader"><%= @user.username %>
+            </div>
+          </div>
+      </div>
+      <div class="field row">
+        <div class="row"><%= f.label :email %></div>
+        <div class="row"><%= f.email_field :email%></div>
+      </div>
 
 
-<%= form_for(@user) do |f| %>
-    <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <div class="field row">
+        <div class="row"><%= f.label :role %></div>
+        <div class="row">
+          <%unless @user.root_admin? %>
+            <%= f.select :role, ['Admin','Moderator','Viewer'] %>
+          <% else %>
+            <div class="small-offset-1 columns">
+              <h3 class="subheader"><%=@user.role%></h3
+            </div>
+            
+          <% end %>
+        </div>
+      </div>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <div class="field row">
+        <div class="row"><%= f.label :status %></div>
+        <div class="row">
+          <%unless @user.root_admin? %>
+            <%= f.select :status, ['Active','Disabled'] %>
+          <% else %>
+            <div class="small-offset-1 columns">
+              <h3 class="subheader"><%=@user.status %></h3>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="actions row">
+        <%= f.submit class: 'button expand' %>
+      </div>
     </div>
+  </fieldset>
+
   <% end %>
-
-    <div class="field">
-      <%= f.label :username %><br>
-      <%= @user.username %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br>
-      <%= f.email_field :email%>
-    </div>
-
-
-    <div class="field">
-      <%= f.label :role %><br>
-      <%unless @user.root_admin? %>
-        <%= f.select :role, ['Admin','Moderator','Viewer'] %>
-      <% else %>
-        <%= f.label :role, @user.role %>
-      <% end %>
-    </div>
-
-    <div class="field">
-      <%= f.label :status %><br>
-      <%unless @user.root_admin? %>
-        <%= f.select :status, ['Active','Disabled'] %>
-      <% else %>
-        <%= f.label :status, @user.status %>
-      <% end %>
-    </div>
-
-
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-
-
-<% end %>
+  <%= link_to 'Back', user_manager.users_path, class: 'button expand secondary' %>
 </div>

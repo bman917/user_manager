@@ -4,28 +4,25 @@
   <title>UserManager</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <%= stylesheet_link_tag    "user_manager/application", media: "all" %>
-  <%= javascript_include_tag "user_manager/application" %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div class="no-print session_info">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.username %></strong>.
-      
-      <%= button_to "Logout", user_manager.destroy_user_session_path, method: :delete, tabindex: -1 %>
-    <% else %>
-      <!--%= link_to "Sign up", new_user_registration_path %-->
-      <%= link_to "Login", user_manager.new_user_session_path %>
-    <% end %>
-</div>
+<%= render 'layouts/navigation'%>
 
  <% flash.each do |name, msg| %>
+ <div id="sign_in" class="row">
+    <div class="column small-6 small-centered alert-box warning" data-alert>
     <%= content_tag :div, msg, id: "flash_#{name}" %>
+    </div>
+  </div>
   <% end %>
-
-<%= yield %>
-
+<div class="row">
+  <div class="small-12 columns">
+  <%= yield %>
+  </div>
+</div>
 </body>
 </html>

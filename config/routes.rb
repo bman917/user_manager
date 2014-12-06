@@ -6,4 +6,6 @@ UserManager::Engine.routes.draw do
       get :activate, on: :member
     end
   end
+
+  root "users#index"
 end
