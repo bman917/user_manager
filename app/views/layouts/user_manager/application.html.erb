@@ -12,17 +12,21 @@
 
 <%= render 'layouts/navigation'%>
 
- <% flash.each do |name, msg| %>
- <div id="sign_in" class="row">
-    <div class="column small-6 small-centered alert-box warning" data-alert>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
+<div id="user_manager" class="row">
+
+<!--  <% flash.each do |name, msg| %>
+   <div id="sign_in" class="row">
+      <div class="column small-6 small-centered alert-box warning" data-alert>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+      </div>
     </div>
-  </div>
   <% end %>
-<div class="row">
+-->
+  
   <div class="small-12 columns">
-  <%= yield %>
+    <%= yield %>
   </div>
+
 </div>
 </body>
 </html>
