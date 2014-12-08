@@ -1,0 +1,20 @@
+  <section id="user_manager_session_details" class="top-bar-section">
+      <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider"></li>
+    <% if user_signed_in? %>
+      <li id="login_info">
+        <a href="#">Logged in as <strong><%= current_user.username %></strong>.</a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <%= link_to "Logout", user_manager.destroy_user_session_path, method: :delete, tabindex: -1 %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Login", user_manager.new_user_session_path %>
+      </li>
+    <% end %>
+    </ul>
+
+  </section>

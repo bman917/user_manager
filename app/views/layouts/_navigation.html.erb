@@ -1,25 +1,9 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      
+      <h1><%= link_to "User Manager", main_app.root_url%></h1>
     </li>
   </ul>
 
-  <section class="top-bar-section">
-    <ul class="right">
-      
-    <% if user_signed_in? %>
-      <li>
-        Logged in as <strong><%= current_user.username %></strong>.
-      </li>
-      <li>
-        <%= link_to "Logout", user_manager.destroy_user_session_path, method: :delete, tabindex: -1 %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Login", user_manager.new_user_session_path %>
-      </li>
-    <% end %>
-    </ul>
-  </section>
+<%=render 'user_manager/session_details'%>
 </nav>

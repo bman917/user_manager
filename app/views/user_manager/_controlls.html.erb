@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+<section id="user_manager_controlls" class="top-bar-section">
+  <ul class="right">
+    <li class="has-dropdown">
+      <%=link_to 'Manage Users', user_manager.users_path%>
+        <ul class="dropdown">
+          <li><%=link_to 'List Users', user_manager.users_path%></li>
+          <li><%=link_to 'Add New', user_manager.new_user_path%></li>
+        </ul>
+    </li>
+  </ul>
+</section>
+<% end %>
