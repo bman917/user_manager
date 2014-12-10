@@ -1,4 +1,4 @@
-<nav class="top-bar" data-topbar role="navigation">
+<nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
   <ul class="title-area">
     <li class="name">
       <h1><%= link_to "User Manager", main_app.root_url%></h1>
@@ -6,4 +6,5 @@
   </ul>
 
 <%=render 'user_manager/session_details'%>
+<%=render 'user_manager/controlls'%>
 </nav>
