@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    user_manager (0.0.1)
+    user_manager (1.0.1)
       devise (~> 3.4)
-      foundation-rails (~> 5.5)
+      foundation-rails
       rails (~> 4.1)
       sass-rails
 

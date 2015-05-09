@@ -1,1 +1,1 @@
-require 'foundation/rails/generators/install_generator'
+#require 'foundation/rails/generators/install_generator'
